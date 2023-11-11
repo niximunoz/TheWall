@@ -1,0 +1,13 @@
+@model Message
+<form method="POST" asp-controller="Post" asp-action="AddMessage">
+    <div class="mb-3">
+        <textarea class="form-control" asp-for="MessageText"></textarea>
+        <span asp-validation-for="MessageText" class="form-text"></span>
+    </div>
+    <div>
+        <input type="hidden" asp-for="UserId" value="@Context.Session.GetInt32("UserId")">
+    </div>
+    <div class="mb-3 text-end">
+        <button type="submit" class="btn btn-success">Post</button>
+    </div>
+</form>

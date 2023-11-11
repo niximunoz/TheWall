@@ -1,0 +1,14 @@
+@model Comment
+<form method="POST" asp-controller="Post" asp-action="AddComment">
+    <div class="mb-3">
+        <textarea class="form-control" asp-for="CommentText"></textarea>
+        <span asp-validation-for="CommentText" class="form-text"></span>
+    </div>
+    <div>
+        <input type="hidden" asp-for="UserId" value="@Context.Session.GetInt32("UserId")">
+        <input type="hidden" asp-for="MessageId" value="@Model.MessageId">
+    </div>
+    <div class="text-end">
+        <button type="submit" class="btn btn-primary">Comment</button>
+    </div>
+</form>
